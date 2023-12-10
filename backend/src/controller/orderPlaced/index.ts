@@ -72,7 +72,7 @@ export const PlaceOrder = async (req: Request, res: Response) => {
       itemsPurchaseHistory: itemsPurchaseHistory,
       totalPrice: totalPrice,
       totalQuantity: totalQuantity,
-      shippingAddress: "ss",
+      shippingAddress: "123 address",
     });
     find.forEach(async (e: any) => {
       await CartModel.findByIdAndDelete(e._id);

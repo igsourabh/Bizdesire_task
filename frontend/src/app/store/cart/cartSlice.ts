@@ -1,5 +1,6 @@
 import axios from "@/utils/axios";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { placeOrder } from "../orders/orderSlice";
 
 export const addToCart: any = createAsyncThunk(
   "addToCart",
@@ -50,7 +51,7 @@ export const counter = createSlice({
       state.loading = true;
     });
     builder.addCase(addToCart.fulfilled, (state, action) => {
-      state.data = action.payload;
+      state.data = action.payload.STATUS_RESPONSE;
 
       state.loading = false;
     });
@@ -64,7 +65,7 @@ export const counter = createSlice({
       state.loading = true;
     });
     builder.addCase(getCart.fulfilled, (state, action) => {
-      state.data = action.payload;
+      state.data = action.payload.STATUS_RESPONSE;
 
       state.loading = false;
     });
@@ -88,6 +89,12 @@ export const counter = createSlice({
       state.error = action.error;
     });
     // ------------------delete cart item---------------------
+
+    builder.addCase(placeOrder.fulfilled, (state, action) => {
+      state.data = [];
+      // Handle the fulfillment of placeOrder in the order slice
+      // You can dispatch other actions, update state, etc.
+    });
   },
 });
 

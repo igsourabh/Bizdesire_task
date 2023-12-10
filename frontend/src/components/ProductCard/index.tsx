@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
+import "./style.css"
 interface ProductProps {
   id: number;
   _id: number;
@@ -24,40 +25,31 @@ const ProductCard: React.FC<ProductProps> = ({
   id,
   _id
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
-      <div className="p-4 md:w-1/4 sm:mb-0 mb-6">
-        <div className="rounded-lg h-64 overflow-hidden">
-          <img
-            alt="content"
-            className="object-cover object-center h-full w-full"
-            src={image}
-          />
-        </div>
-        <h2 className="text-xl font-medium title-font text-white mt-5">
-          {name}
-        </h2>
-        <p className="text-base leading-relaxed mt-2">{description}</p>
-        <h2 className="text-sm font-medium title-font text-white mt-1">
-          Price: {price}
-        </h2>
-        <Link
-          href={`/product/${_id}`}
-          className="text-indigo-400 inline-flex items-center mt-3">
-          Details
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            className="w-4 h-4 ml-2"
-            viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </Link>
+      
+      <Link
+      href={`/product/${_id}`}
+      className={`lg:w-1/4 md:w-1/2 p-4 w-full ${
+        isHovered ? 'transform scale-105 transition-transform' : ''
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <a className="block relative h-48 rounded overflow-hidden">
+        <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={image} />
+      </a>
+      <div className="mt-4">
+        <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{category}</h3>
+        <h2 className="text-white title-font text-lg font-medium">{name}</h2>
+        <p className="mt-1">${price}</p>
       </div>
+    </Link>
+      
+
+      
     </>
   );
 };

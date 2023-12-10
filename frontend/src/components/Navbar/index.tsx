@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Navbar: React.FC = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state: any) => state.cart.data.STATUS_RESPONSE);
+  const data = useSelector((state: any) => state.cart.data);
   useEffect(() => {
     dispatch(getCart());
 
@@ -23,10 +23,10 @@ const Navbar: React.FC = () => {
           </Link>
 
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            {/* <Link href="/cart" className="mr-5 hover:text-white">
-              First Link
+            <Link href="/orders" className="mr-5 hover:text-white">
+              Placed Order
             </Link>
-            <Link href="/cart" className="mr-5 hover:text-white">
+            {/* <Link href="/cart" className="mr-5 hover:text-white">
               Second Link
             </Link>
             <Link href="/cart" className="mr-5 hover:text-white">

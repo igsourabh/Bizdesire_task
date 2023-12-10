@@ -27,7 +27,6 @@ export default function Home() {
 
     return () => {};
   }, []);
-
   return (
     <>
       <section className="text-gray-400 bg-gray-900 body-font h-full min-h-screen">

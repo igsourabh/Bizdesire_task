@@ -1,7 +1,7 @@
 "use client";
 import { getPlacedOrder } from "@/app/store/orders/orderSlice";
 import OrderCard from "@/components/OrderCard";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const page = () => {

@@ -1,10 +1,9 @@
 "use client";
 import ProductCard from "@/components/ProductCard";
-import Image from "next/image";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchPosts, fetchSinglePosts } from "../store/product/productSlice";
+import { fetchPosts } from "../store/product/productSlice";
 
 export interface Product {
   _id: any;

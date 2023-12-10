@@ -1,8 +1,7 @@
 "use client";
 import CartCard from "@/components/CartCard";
-import ProductCard from "@/components/ProductCard";
 import Modal from "@/components/modal";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const page = () => {
